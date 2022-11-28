@@ -27,9 +27,13 @@
     </fragment>
     <fragment
         android:id="@+id/moviesFragment"
-        android:name="com.ono.locatporium.MoviesFragment"
+        android:name="com.ono.locatporium.HobbyFragment"
         android:label="fragment_movies"
-        tools:layout="@layout/fragment_movies" />
+        tools:layout="@layout/fragment_hobby" >
+        <action
+            android:id="@+id/action_moviesFragment_to_savedHobbiesFragment"
+            app:destination="@id/savedHobbiesFragment" />
+    </fragment>
     <action
         android:id="@+id/action_global_moviesFragment"
         app:destination="@id/moviesFragment"
@@ -40,4 +44,9 @@
         android:name="com.ono.locatporium.MemoriesFragment"
         android:label="fragment_memories"
         tools:layout="@layout/fragment_memories" />
+    <fragment
+        android:id="@+id/savedHobbiesFragment"
+        android:name="com.ono.locatporium.SavedHobbiesFragment"
+        android:label="fragment_saved_hobbies"
+        tools:layout="@layout/fragment_saved_hobbies" />
 </navigation>

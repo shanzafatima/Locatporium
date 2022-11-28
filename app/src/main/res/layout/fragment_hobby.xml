@@ -4,7 +4,7 @@
     xmlns:tools="http://schemas.android.com/tools"
     android:layout_width="match_parent"
     android:layout_height="match_parent"
-    tools:context=".MoviesFragment">
+    tools:context=".HobbyFragment">
 
     <!-- TODO: Update blank fragment layout -->
     <TextView
@@ -13,6 +13,7 @@
         android:layout_height="wrap_content"
         android:text="Search Your Favourite Movies"
         android:textSize="20sp"
+        android:visibility="gone"
         app:layout_constraintEnd_toEndOf="parent"
         app:layout_constraintStart_toStartOf="parent"
         app:layout_constraintTop_toTopOf="parent" />
@@ -25,7 +26,7 @@
         android:hint="Movie name"
         android:inputType="textPersonName"
         android:visibility="gone"
-        app:layout_constraintEnd_toStartOf="@+id/btnMovieSearch"
+        app:layout_constraintEnd_toStartOf="@+id/btnSearchActivity"
         app:layout_constraintStart_toStartOf="parent"
         app:layout_constraintTop_toBottomOf="@+id/textView2" />
 
@@ -40,24 +41,55 @@
         app:layout_constraintTop_toBottomOf="@+id/etMovies" />
 
     <Button
-        android:id="@+id/btnMovieSearch"
+        android:id="@+id/btnSearchActivity"
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
         android:text="Get me something good!"
-        app:layout_constraintBottom_toBottomOf="parent"
+        app:layout_constraintBottom_toTopOf="@+id/tvHobby"
         app:layout_constraintEnd_toEndOf="parent"
         app:layout_constraintStart_toStartOf="parent"
-        app:layout_constraintTop_toBottomOf="@+id/textView2"
-        app:layout_constraintVertical_bias="0.10" />
+        app:layout_constraintTop_toBottomOf="@+id/imgSavedActivities"
+        app:layout_constraintVertical_bias="0.0"
+        tools:visibility="visible" />
 
     <TextView
         android:id="@+id/tvHobby"
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
         app:layout_constraintBottom_toBottomOf="parent"
-        app:layout_constraintEnd_toEndOf="@+id/btnMovieSearch"
-        app:layout_constraintStart_toStartOf="@+id/btnMovieSearch"
-        app:layout_constraintTop_toBottomOf="@+id/btnMovieSearch"
-        app:layout_constraintVertical_bias="0.20" />
+        app:layout_constraintEnd_toEndOf="@+id/btnSearchActivity"
+        app:layout_constraintStart_toStartOf="@+id/btnSearchActivity"
+        app:layout_constraintTop_toBottomOf="@+id/textView2"
+        tools:visibility="visible" />
+
+    <Button
+        android:id="@+id/btnShare"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_marginBottom="64dp"
+        android:text="Share"
+        app:layout_constraintBottom_toBottomOf="parent"
+        app:layout_constraintEnd_toStartOf="@+id/btnSave"
+        app:layout_constraintStart_toStartOf="parent" />
+
+    <Button
+        android:id="@+id/btnSave"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:text="Save"
+        app:layout_constraintBottom_toBottomOf="@+id/btnShare"
+        app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintStart_toEndOf="@+id/btnShare"
+        app:layout_constraintTop_toTopOf="@+id/btnShare" />
+
+    <ImageView
+        android:id="@+id/imgSavedActivities"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_marginTop="12dp"
+        android:layout_marginEnd="32dp"
+        app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintTop_toTopOf="parent"
+        app:srcCompat="@android:drawable/ic_menu_save" />
 
 </androidx.constraintlayout.widget.ConstraintLayout>
