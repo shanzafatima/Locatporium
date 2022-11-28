@@ -12,6 +12,7 @@ import android.view.LayoutInflater;
 import android.view.View;
 import android.view.ViewGroup;
 import android.widget.Button;
+import android.widget.ImageView;
 import android.widget.TextView;
 import android.widget.Toast;
 
@@ -41,6 +42,7 @@ public class LoginFragment extends Fragment {
     Activity activity;
     TextView msgtex;
     Button loginbutton;
+    private ImageView imageView3;
 
 
     // TODO: Rename and change types of parameters
@@ -88,6 +90,7 @@ public class LoginFragment extends Fragment {
 
         loginbutton = root.findViewById(R.id.login);
         msgtex = root.findViewById(R.id.msgtext);
+        imageView3 = root.findViewById(R.id.imageView3);
 
 
         BiometricManager biometricManager = androidx.biometric.BiometricManager.from(activity);
@@ -149,8 +152,7 @@ public class LoginFragment extends Fragment {
         final BiometricPrompt.PromptInfo promptInfo = new BiometricPrompt.PromptInfo.Builder().setTitle("Locatporium")
                 .setDescription("Use your fingerprint to login ").setNegativeButtonText("Cancel").build();
 
-//        loginbutton.setOnClickListener(v -> biometricPrompt.authenticate(promptInfo));
-        loginbutton.setOnClickListener(v -> navigateFragment());
+        imageView3.setOnClickListener(v -> biometricPrompt.authenticate(promptInfo));
 
         return root;
     }

@@ -11,12 +11,14 @@ import android.util.Base64;
 import android.view.LayoutInflater;
 import android.view.View;
 import android.view.ViewGroup;
+import android.widget.Button;
 import android.widget.Toast;
 
 import androidx.annotation.NonNull;
 import androidx.annotation.Nullable;
 import androidx.annotation.RequiresApi;
 import androidx.fragment.app.Fragment;
+import androidx.recyclerview.widget.GridLayoutManager;
 import androidx.recyclerview.widget.RecyclerView;
 
 import com.google.android.material.floatingactionbutton.FloatingActionButton;
@@ -65,7 +67,7 @@ public class MemoriesFragment extends Fragment {
 
 
     private RecyclerView recyclerView;
-    private FloatingActionButton floatingActionButton;
+    private Button btnTakeImage;
     private List<DtoMemory> memoryList = new ArrayList<>();
     private MemoriesAdapter memoriesAdapter;
 
@@ -98,16 +100,17 @@ public class MemoriesFragment extends Fragment {
 
     private void initComponents(View view) {
         recyclerView = view.findViewById(R.id.rvMemories);
-        floatingActionButton = view.findViewById(R.id.fbCamera);
+        btnTakeImage = view.findViewById(R.id.btnTakeImage);
     }
 
     @RequiresApi(api = Build.VERSION_CODES.M)
     private void initListeners() {
-        floatingActionButton.setOnClickListener(v -> cameraPermissions());
+        btnTakeImage.setOnClickListener(v -> cameraPermissions());
     }
 
     private void initAdapter() {
         memoriesAdapter = new MemoriesAdapter(memoryList);
+        recyclerView.setLayoutManager(new GridLayoutManager(requireContext(), 2));
         recyclerView.setAdapter(memoriesAdapter);
     }
 
@@ -145,7 +148,7 @@ public class MemoriesFragment extends Fragment {
         if (requestCode == CAMERA_REQUEST && resultCode == Activity.RESULT_OK) {
             theImage = (Bitmap) data.getExtras().get("data");
             photo = getEncodedString(theImage);
-            DtoMemory dtoMemory = new DtoMemory(String.valueOf(System.currentTimeMillis()), photo);
+            DtoMemory dtoMemory = new DtoMemory(0, String.valueOf(System.currentTimeMillis()), photo);
             memoryList.add(dtoMemory);
             memoriesAdapter.notifyItemInserted(memoryList.size() - 1);
             TempDatabaseController.setValue(TempDatabaseController.MEMORY, memoryList);
@@ -156,9 +159,6 @@ public class MemoriesFragment extends Fragment {
     private String getEncodedString(Bitmap bitmap) {
         ByteArrayOutputStream os = new ByteArrayOutputStream();
         bitmap.compress(Bitmap.CompressFormat.JPEG, 100, os);
-
-       /* or use below if you want 32 bit images
-        bitmap.compress(Bitmap.CompressFormat.PNG, (0–100 compression), os);*/
         byte[] imageArr = os.toByteArray();
         return Base64.encodeToString(imageArr, Base64.URL_SAFE);
 
