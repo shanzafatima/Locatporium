@@ -21,7 +21,7 @@
         android:label="@string/app_name"
         android:roundIcon="@drawable/icon"
         android:supportsRtl="true"
-        android:theme="@style/Theme.Locatporium"
+        android:theme="@style/Theme.Design.NoActionBar"
         tools:targetApi="31">
         <activity
             android:name=".SplashActivity"
