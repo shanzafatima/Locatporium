@@ -47,7 +47,14 @@ public class SavedActivitiesAdapter extends RecyclerView.Adapter<SavedActivities
                 activityContext.startActivity(shareIntent);
             }
         });
-        
+
+        holder.ivDelete.setOnClickListener(new View.OnClickListener() {
+            @Override
+            public void onClick(View v) {
+                activities.remove(position);
+                notifyItemRemoved(position);
+            }
+        });
 
     }
 
