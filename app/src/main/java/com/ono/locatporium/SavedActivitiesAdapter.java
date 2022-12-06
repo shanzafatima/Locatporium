@@ -1,8 +1,11 @@
 package com.ono.locatporium;
 
+import android.app.Activity;
+import android.content.Intent;
 import android.view.LayoutInflater;
 import android.view.View;
 import android.view.ViewGroup;
+import android.widget.ImageView;
 import android.widget.TextView;
 
 import androidx.recyclerview.widget.RecyclerView;
@@ -10,9 +13,11 @@ import androidx.recyclerview.widget.RecyclerView;
 import java.util.List;
 
 public class SavedActivitiesAdapter extends RecyclerView.Adapter<SavedActivitiesAdapter.ViewHolder> {
-    private List<DtoActivity> activities;
+    public List<DtoActivity> activities;
+    public Activity activityContext;
 
-    public SavedActivitiesAdapter(List<DtoActivity> activities) {
+    public SavedActivitiesAdapter(Activity activityContext, List<DtoActivity> activities) {
+        this.activityContext = activityContext;
         this.activities = activities;
     }
 
@@ -29,6 +34,7 @@ public class SavedActivitiesAdapter extends RecyclerView.Adapter<SavedActivities
         final DtoActivity activity = activities.get(position);
         StringBuilder value = new StringBuilder().append("Activity Title : ").append(activity.getActivity() + "\n\n").append("Activity Type : ").append(activity.getType() + "\n\n").append("Participants Required : ").append(activity.getParticipants() + "\n\n").append("Price : ").append(activity.getPrice() + "\n\n").append("Activity Link : ").append(activity.getLink() + "\n\n").append("Activity Accessibility : ").append(activity.getAccessibility() + "\n\n");
         holder.tvSavedActivity.setText(value);
+        
     }
 
     @Override
@@ -38,10 +44,15 @@ public class SavedActivitiesAdapter extends RecyclerView.Adapter<SavedActivities
 
     public static class ViewHolder extends RecyclerView.ViewHolder {
         public TextView tvSavedActivity;
+        private ImageView ivShare, ivDelete;
+        private Activity activity;
 
         public ViewHolder(View itemView) {
             super(itemView);
+            this.activity = activity;
             this.tvSavedActivity = itemView.findViewById(R.id.tvSavedActivity);
+            this.ivShare = itemView.findViewById(R.id.ivShare);
+            this.ivDelete = itemView.findViewById(R.id.ivDelete);
         }
     }
 }
