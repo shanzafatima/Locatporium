@@ -93,7 +93,7 @@ public class SavedHobbiesFragment extends Fragment {
     }
 
     private void setAdapter() {
-        savedActivitiesAdapter = new SavedActivitiesAdapter(activities);
+        savedActivitiesAdapter = new SavedActivitiesAdapter(requireActivity(), activities);
         rvSavedItems.setAdapter(savedActivitiesAdapter);
     }
 }

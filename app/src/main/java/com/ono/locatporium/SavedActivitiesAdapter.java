@@ -34,7 +34,21 @@ public class SavedActivitiesAdapter extends RecyclerView.Adapter<SavedActivities
         final DtoActivity activity = activities.get(position);
         StringBuilder value = new StringBuilder().append("Activity Title : ").append(activity.getActivity() + "\n\n").append("Activity Type : ").append(activity.getType() + "\n\n").append("Participants Required : ").append(activity.getParticipants() + "\n\n").append("Price : ").append(activity.getPrice() + "\n\n").append("Activity Link : ").append(activity.getLink() + "\n\n").append("Activity Accessibility : ").append(activity.getAccessibility() + "\n\n");
         holder.tvSavedActivity.setText(value);
+
+        holder.ivShare.setOnClickListener(new View.OnClickListener() {
+            @Override
+            public void onClick(View v) {
+                Intent sendIntent = new Intent();
+                sendIntent.setAction(Intent.ACTION_SEND);
+                sendIntent.putExtra(Intent.EXTRA_TEXT, value.toString());
+                sendIntent.putExtra(Intent.EXTRA_TITLE, "Something worthy...");
+                sendIntent.setType("text/plain");
+                Intent shareIntent = Intent.createChooser(sendIntent, null);
+                activityContext.startActivity(shareIntent);
+            }
+        });
         
+
     }
 
     @Override
