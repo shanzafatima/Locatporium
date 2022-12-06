@@ -68,18 +68,20 @@ public class MainFragment extends Fragment implements View.OnClickListener {
         return view;
     }
 
-    private TextView tvMovies, tvMemories, tvPlaces;
+    private TextView tvMovies, tvMemories, tvPlaces, tvLogout;
 
     private void initComponents(View view) {
         tvMovies = view.findViewById(R.id.tvMovies);
         tvMemories = view.findViewById(R.id.tvMemories);
         tvPlaces = view.findViewById(R.id.tvPlaces);
+        tvLogout = view.findViewById(R.id.tvLogout);
     }
 
     private void initListeners() {
         tvMovies.setOnClickListener(this);
         tvMemories.setOnClickListener(this);
         tvPlaces.setOnClickListener(this);
+        tvLogout.setOnClickListener(this);
     }
 
     @Override
@@ -90,6 +92,8 @@ public class MainFragment extends Fragment implements View.OnClickListener {
             navigateFragment(ActionType.CAMERA);
         } else if (v.getId() == R.id.tvPlaces) {
 //            navigateFragment(ActionType.MOVIE);
+        } else if (v.getId() == R.id.tvLogout) {
+            requireActivity().finish();
         }
     }
 
