@@ -2,14 +2,9 @@
 <manifest xmlns:android="http://schemas.android.com/apk/res/android"
     xmlns:tools="http://schemas.android.com/tools">
 
-    <uses-permission android:name="android.permission.USE_BIOMETRIC" />
-
-    <!-- Declare features -->
-    <uses-feature android:name="android.hardware.camera" />
-
-    <!-- Declare permissions -->
+    <uses-permission android:name="android.permission.USE_BIOMETRIC" /> <!-- Declare features -->
+    <uses-feature android:name="android.hardware.camera" /> <!-- Declare permissions -->
     <uses-permission android:name="android.permission.CAMERA" />
-
     <uses-permission android:name="android.permission.INTERNET" />
 
     <application
@@ -23,6 +18,13 @@
         android:supportsRtl="true"
         android:theme="@style/Theme.Design.NoActionBar"
         tools:targetApi="31">
+        <activity
+            android:name=".ImageViewerActivity"
+            android:exported="false">
+            <meta-data
+                android:name="android.app.lib_name"
+                android:value="" />
+        </activity>
         <activity
             android:name=".SplashActivity"
             android:configChanges="keyboard|orientation"
@@ -60,7 +62,6 @@
             <meta-data
                 android:name="android.notch_support"
                 android:value="true" />
-
             <meta-data
                 android:name="android.app.lib_name"
                 android:value="" />
@@ -96,10 +97,7 @@
             <meta-data
                 android:name="android.notch_support"
                 android:value="true" />
-
-        </activity>
-
-        <!-- FileProvider used to share photos with other apps -->
+        </activity> <!-- FileProvider used to share photos with other apps -->
         <provider
             android:name="androidx.core.content.FileProvider"
             android:authorities="${applicationId}.provider"

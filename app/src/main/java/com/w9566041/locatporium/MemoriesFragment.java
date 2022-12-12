@@ -23,7 +23,6 @@ import androidx.recyclerview.widget.RecyclerView;
 
 import java.io.ByteArrayOutputStream;
 import java.util.ArrayList;
-import java.util.List;
 
 /**
  * A simple {@link Fragment} subclass.
@@ -66,7 +65,7 @@ public class MemoriesFragment extends Fragment {
 
     private RecyclerView recyclerView;
     private Button btnTakeImage;
-    private List<DtoMemory> memoryList = new ArrayList<>();
+    private ArrayList<DtoMemory> memoryList = new ArrayList<>();
     private MemoriesAdapter memoriesAdapter;
 
     @Override
@@ -79,7 +78,7 @@ public class MemoriesFragment extends Fragment {
 
         Object obj = TempDatabaseController.getValue(TempDatabaseController.MEMORY);
         if (obj != null) {
-            memoryList = (List<DtoMemory>) obj;
+            memoryList = (ArrayList<DtoMemory>) obj;
         }
 
     }
