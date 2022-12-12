@@ -1,30 +1,37 @@
 package com.w9566041.locatporium;
 
+import android.content.BroadcastReceiver;
+import android.content.Context;
+import android.content.Intent;
 import android.content.IntentFilter;
-import android.os.Bundle;
+import android.widget.Toast;
 
-import androidx.annotation.Nullable;
 import androidx.appcompat.app.AppCompatActivity;
 
 public class ParentActivity extends AppCompatActivity {
 
-    IntentFilter intentFilter = new IntentFilter("android.intent.action.AIRPLANE_MODE_CHANGED");
-    AirplaneModeChangeReceiver airplaneModeChangeReceiver = new AirplaneModeChangeReceiver();
-
     @Override
-    protected void onCreate(@Nullable Bundle savedInstanceState) {
-        super.onCreate(savedInstanceState);
-        registerReceiver(airplaneModeChangeReceiver, intentFilter);
+    protected void onResume() {
+        IntentFilter airPlaneModeFilter = new IntentFilter(Intent.ACTION_AIRPLANE_MODE_CHANGED);
+        registerReceiver(airPlaneModeReceiver, airPlaneModeFilter);
+        super.onResume();
     }
 
     @Override
     protected void onPause() {
+        unregisterReceiver(airPlaneModeReceiver);
         super.onPause();
     }
 
-    @Override
-    protected void onStop() {
-        super.onStop();
-        unregisterReceiver(airplaneModeChangeReceiver);
-    }
+    private BroadcastReceiver airPlaneModeReceiver = new BroadcastReceiver() {
+        @Override
+        public void onReceive(Context context, Intent intent) {
+            boolean airPlaneModeEnabled = intent.getBooleanExtra("state", false);
+            if (airPlaneModeEnabled) {
+                Toast.makeText(context, "Airplane Mode Enabled", Toast.LENGTH_LONG).show();
+            } else {
+                Toast.makeText(context, "Airplane Mode Disabled", Toast.LENGTH_LONG).show();
+            }
+        }
+    };
 }

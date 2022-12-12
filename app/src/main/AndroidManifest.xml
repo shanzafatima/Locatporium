@@ -109,15 +109,16 @@
         </provider>
 
 
-        <receiver
-            android:name=".AirplaneModeChangeReceiver"
-            android:enabled="true"
-            android:exported="true">
-            <intent-filter>
-                <action android:name="android.intent.action.AIRPLANE_MODE" />
-                <action android:name="android.intent.action.AIRPLANE_MODE_CHANGED" />
-            </intent-filter>
-        </receiver>
+<!--        <receiver-->
+<!--            android:name=".AirplaneModeChangeReceiver"-->
+<!--            android:enabled="true"-->
+<!--            android:exported="true">-->
+<!--            <intent-filter>-->
+<!--                <action android:name="android.net.conn.CONNECTIVITY_CHANGE" />-->
+<!--                <action android:name="android.intent.action.AIRPLANE_MODE" />-->
+<!--                <action android:name="android.intent.action.AIRPLANE_MODE_CHANGED" />-->
+<!--            </intent-filter>-->
+<!--        </receiver>-->
     </application>
 
 </manifest>
