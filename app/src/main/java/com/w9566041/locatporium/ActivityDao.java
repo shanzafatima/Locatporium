@@ -1,4 +1,4 @@
-package com.ono.locatporium;
+package com.w9566041.locatporium;
 
 import androidx.room.Dao;
 import androidx.room.Delete;

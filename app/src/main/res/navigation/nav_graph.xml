@@ -6,7 +6,7 @@
     app:startDestination="@id/loginFragment">
     <fragment
         android:id="@+id/loginFragment"
-        android:name="com.ono.locatporium.LoginFragment"
+        android:name="com.w9566041.locatporium.LoginFragment"
         android:label="LoginFragment"
         tools:layout="@layout/fragment_login" >
         <action
@@ -15,7 +15,7 @@
     </fragment>
     <fragment
         android:id="@+id/mainFragment"
-        android:name="com.ono.locatporium.MainFragment"
+        android:name="com.w9566041.locatporium.MainFragment"
         android:label="MainFragment"
         tools:layout="@layout/fragment_main">
         <action
@@ -27,7 +27,7 @@
     </fragment>
     <fragment
         android:id="@+id/moviesFragment"
-        android:name="com.ono.locatporium.HobbyFragment"
+        android:name="com.w9566041.locatporium.HobbyFragment"
         android:label="fragment_movies"
         tools:layout="@layout/fragment_hobby" >
         <action
@@ -41,12 +41,12 @@
         app:exitAnim="@anim/nav_default_exit_anim" />
     <fragment
         android:id="@+id/memoriesFragment"
-        android:name="com.ono.locatporium.MemoriesFragment"
+        android:name="com.w9566041.locatporium.MemoriesFragment"
         android:label="fragment_memories"
         tools:layout="@layout/fragment_memories" />
     <fragment
         android:id="@+id/savedHobbiesFragment"
-        android:name="com.ono.locatporium.SavedHobbiesFragment"
+        android:name="com.w9566041.locatporium.SavedHobbiesFragment"
         android:label="fragment_saved_hobbies"
         tools:layout="@layout/fragment_saved_hobbies" />
 </navigation>

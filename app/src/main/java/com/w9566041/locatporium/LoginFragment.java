@@ -1,4 +1,4 @@
-package com.ono.locatporium;
+package com.w9566041.locatporium;
 
 import static androidx.biometric.BiometricManager.Authenticators.BIOMETRIC_STRONG;
 import static androidx.biometric.BiometricManager.Authenticators.DEVICE_CREDENTIAL;

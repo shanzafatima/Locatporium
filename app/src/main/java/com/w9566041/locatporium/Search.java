@@ -1,4 +1,4 @@
-package com.ono.locatporium;
+package com.w9566041.locatporium;
 
 
 import com.google.gson.annotations.Expose;

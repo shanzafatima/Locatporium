@@ -1,4 +1,4 @@
-package com.ono.locatporium;
+package com.w9566041.locatporium;
 
 import android.Manifest;
 import android.app.Activity;
@@ -20,8 +20,6 @@ import androidx.annotation.RequiresApi;
 import androidx.fragment.app.Fragment;
 import androidx.recyclerview.widget.GridLayoutManager;
 import androidx.recyclerview.widget.RecyclerView;
-
-import com.google.android.material.floatingactionbutton.FloatingActionButton;
 
 import java.io.ByteArrayOutputStream;
 import java.util.ArrayList;

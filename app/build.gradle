@@ -4,11 +4,11 @@ plugins {
 }
 
 android {
-    namespace 'com.ono.locatporium'
+    namespace 'com.w9566041.locatporium'
     compileSdk 32
 
     defaultConfig {
-        applicationId "com.ono.locatporium"
+        applicationId "com.w9566041.locatporium"
         minSdk 21
         targetSdk 32
         versionCode 1

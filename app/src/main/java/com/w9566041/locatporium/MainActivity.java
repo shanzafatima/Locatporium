@@ -1,4 +1,4 @@
-package com.ono.locatporium;
+package com.w9566041.locatporium;
 
 import androidx.appcompat.app.AppCompatActivity;
 
