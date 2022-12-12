@@ -24,7 +24,7 @@
         android:layout_height="0dp"
         android:background="#673AB7"
         android:gravity="center"
-        android:text="Explore a new hobby"
+        android:text="My Cool Hobbies"
         android:textColor="@color/white"
         android:textSize="24sp"
         app:layout_constraintBottom_toTopOf="@+id/tvMemories"
